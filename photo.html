@@ -8,6 +8,8 @@
 </head>
 
 <body>
+          <!-- The Modal -->
+    
 
   <div class="fs-timeline-header">
     <div class="fs-timeline-header-card">
@@ -16,9 +18,9 @@
     </div>
   </div>
 
-  <ul class="fs-timeline">
-    <div style=" border-style: solid; height: 150px; margin-bottom: 10px">
-      <ps> phần Upload của lương</p>
+  <ul class="fs-timeline" id="photo-timeline">
+    <div style=" background: purple; height: 150px; margin-bottom: 10px">
+      <p> phần Upload của lương</p>
     </div>
 
     <!-- Cho vòng lập ở đây -->
@@ -28,11 +30,15 @@
       <p class="fs-timeline-item-date">FEB 2017<br>
       </p>
       <p class="fs-timeline-item-description"><span class="fs-timeline-tag">Party WE LOVE 12A3</span><br>Hung have a party with <a href="#">Mary Malinda Hall</a> and <a href="#">John Zera Alger</a>.<br>
-        <img src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/22008199_1981585005454491_4141024704084637856_n.jpg?_nc_cat=0&oh=d964d77c899ca93ec874359c7da9af68&oe=5B7E157C">
+        <img id="myImg" src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/22008199_1981585005454491_4141024704084637856_n.jpg?_nc_cat=0&oh=d964d77c899ca93ec874359c7da9af68&oe=5B7E157C" style="height: 150px">
       </p>
+
     </li>
+
+
     <!-- Kết thúc vòng lập -->
   
+  <!--Start code show Mẫu -->
     <li class="fs-timeline-item">
       <div class="fs-timeline-item-line"></div>
       <div class="fs-timeline-item-bullet"></div>
@@ -82,7 +88,18 @@
         <img src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/22008199_1981585005454491_4141024704084637856_n.jpg?_nc_cat=0&oh=d964d77c899ca93ec874359c7da9af68&oe=5B7E157C" style="height: 100px">
       </p>
     </li>
+  <!-- END code show mẫu -->
+
   </ul>
+
+    <div id="myModal" class="modal">
+
+      <!-- The Close Button -->
+      <span class="close">&times;</span>
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="img01">
+
+    </div>
 
     <script  src="js/photo.js"></script>
 </body>
