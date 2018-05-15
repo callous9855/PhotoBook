@@ -21,15 +21,15 @@
     <div class="card"></div>
     <div class="card">
       <h1 class="title">Login</h1>  
-      <form>
+      <form action="index.html" method="POST">
         <div class="input-container">
-          <input type="#{type}" id="#{label}" required="required"/>
-          <label for="#{label}">Username</label>
+          <input type="text" id="username" name="username" required="required"/>
+          <label for="username">Username</label>
           <div class="bar"></div>
         </div>
         <div class="input-container">
-          <input type="#{type}" id="#{label}" required="required"/>
-          <label for="#{label}">Password</label>
+          <input type="password" id="password" name="password" required="required"/>
+          <label for="password">Password</label>
           <div class="bar"></div>
         </div>
         <div class="button-container">
@@ -45,20 +45,20 @@
       <h1 class="title">Register
         <div class="close"></div>
       </h1>
-      <form>
+      <form action="index.html" method="POST">
         <div class="input-container">
-          <input type="#{type}" id="#{label}" required="required"/>
-          <label for="#{label}">Username</label>
+          <input type="text" id="su_username" name="username" required="required"/>
+          <label for="su_username">Username</label>
           <div class="bar"></div>
         </div>
         <div class="input-container">
-          <input type="#{type}" id="#{label}" required="required"/>
-          <label for="#{label}">Password</label>
+          <input type="password" id="su_password" name="password" required="required"/>
+          <label for="su_password">Password</label>
           <div class="bar"></div>
         </div>
         <div class="input-container">
-          <input type="#{type}" id="#{label}" required="required"/>
-          <label for="#{label}">Repeat Password</label>
+          <input type="password" id="su_repassword"  name="repassword" required="required"/>
+          <label for="su_repassword">Repeat Password</label>
           <div class="bar"></div>
         </div>
         <div class="button-container">
