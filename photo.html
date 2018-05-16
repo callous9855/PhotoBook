@@ -29,21 +29,24 @@
   </div>
 
   <ul class="fs-timeline" id="photo-timeline">
+    <!-- start chọn upload ảnh -->
     <div id="drop-area">
-      <form class="upload-form">
+      <form id="up_photo_form" class="upload-form" action="/groups/<group_code>/upload" method="POST">
         Title
         <input type="text" name="title" >
         <br>
         Date
         <input type="text" name="date">
         <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this.files)">
-        <label class="button" for="fileElem">Select some files</label>
-      <progress id="progress-bar" max=100 value=0></progress>
-      <div id="gallery" /></div>
+        <label class="button" for="fileElem">Select Images</label>
+
+        <progress id="progress-bar" max=100 value=0></progress>
+        <div id="gallery"/></div>
       </form>   
-      <input type="submit" value="Upload">
+      <input type="submit" id="up_photo_btn" value="Upload">
       <input type="button" value="Crop & resize">
     </div>
+    <!-- end chọn upload ảnh -->
 
     <!-- Cho vòng lập ở đây -->
     <li class="fs-timeline-item">
@@ -59,8 +62,6 @@
       </p>
 
     </li>
-
-
     <!-- Kết thúc vòng lập -->
   
   <!--Start code show Mẫu -->

@@ -114,6 +114,7 @@ function handleFiles(files) {
   files.forEach(previewFile)
 }
 
+// preview image
 function previewFile(file) {
   let reader = new FileReader()
   reader.readAsDataURL(file)
@@ -124,6 +125,7 @@ function previewFile(file) {
   }
 }
 
+// upload image
 function uploadFile(file, i) {
   var url = 'https://api.cloudinary.com/v1_1/joezim007/image/upload'
   var xhr = new XMLHttpRequest()
@@ -151,3 +153,35 @@ function uploadFile(file, i) {
 }
 // end drag and drop image
 
+
+// start document
+$(document).ready(function(){
+
+  // start upload photo story
+  $('#up_photo_btn').click(function (e){
+    e.preventDefault();
+    var form = document.querySelector('#up_photo_form');
+
+    $.ajax({
+      url: '/groups/<group_code>/upload',
+      method: 'POST',
+      dataType: 'json',
+      data: new new FormData(form),
+      processData: false,
+      contentType: false,
+
+    }).done(function (data){
+      form.reset();
+
+      // getGroupPhoto();
+      
+    }).fail(function (error, photo) {
+      console.log(error.message); 
+      // json photo object 
+      console.log(photo);
+    });
+  }
+  // end thêm photo story
+
+})
+// end document
