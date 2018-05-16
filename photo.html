@@ -29,8 +29,20 @@
   </div>
 
   <ul class="fs-timeline" id="photo-timeline">
-    <div style=" background: #00ADB5; height: 150px; margin-bottom: 10px">
-      <p> phần Upload của lương</p>
+    <div id="drop-area">
+      <form class="upload-form">
+        Title
+        <input type="text" name="title" >
+        <br>
+        Date
+        <input type="text" name="date">
+        <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this.files)">
+        <label class="button" for="fileElem">Select some files</label>
+      <progress id="progress-bar" max=100 value=0></progress>
+      <div id="gallery" /></div>
+      </form>   
+      <input type="submit" value="Upload">
+      <input type="button" value="Crop & resize">
     </div>
 
     <!-- Cho vòng lập ở đây -->
