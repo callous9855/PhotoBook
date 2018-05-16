@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Photo Timeline</title>
   <link rel="stylesheet" href="css/photo.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 </head>
 
 <body>
@@ -12,15 +13,18 @@
 
   <div class="fs-timeline-header">
     <div class="fs-timeline-header-card">
-      <div class="dropdown">
+
         <img id="user-avatar" class="header-image" src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/30740204_821205674754273_674719125431968511_n.jpg?_nc_cat=0&oh=a01a5efbed8cf8c6e935e7a75fba8558&oe=5B902C73">
-        <div class="dropdown-content">
-          <a href="#">Group 1</a>
-          <a href="#">Group 2</a>
-          <a href="#">Group 3</a>
-        </div>
-      </div>
-      <div class="header-name">Username</div>
+        <span class="dropdown"><i class="fas fa-users"></i>
+          <div class="dropdown-content">
+              <a class="dropdown-circle" href="#">Group 1</a>
+              <a class="dropdown-circle" href="#">Group 2</a>
+              <a class="dropdown-circle" href="#">Group 3</a>
+          </div>
+        </span>
+        <a href="index.html"><i class="fas fa-sign-out-alt"></i></a>
+      
+      <div class="header-name">PhotoBook of Manh Hung</div>
     </div>
   </div>
 
@@ -109,28 +113,6 @@
       <!-- Modal Content (The Image) -->
       <img class="modal-content" id="img01">
     </div>
-
-    <!-- The combox add group friends -->
-    <ul class="combobox-content">
-        <li class="combobox-contentItem">
-            <input type="radio" class="combobox-input" value="Swedish companies" name="country" id="sweden" checked>
-            <label class="combobox-label" for="sweden">
-                <span class="combobox-label-title">Swedish companies</span>
-            </label>
-        </li>
-        <li class="combobox-contentItem">
-            <input type="radio" class="combobox-input" value="Norweigan companies" name="country" id="norway">
-            <label class="combobox-label" for="norway">
-                <span class="combobox-label-title">Norwegian companies</span>
-            </label>
-        </li>
-        <li class="combobox-contentItem">
-            <input type="radio" class="combobox-input" value="Danish companies" name="country" id="denmark">
-            <label class="combobox-label" for="denmark">
-                <span class="combobox-label-title">Danish companies</span>
-            </label>
-        </li>
-    </ul>
 
     <script  src="js/photo.js"></script>
 </body>
