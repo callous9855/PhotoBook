@@ -2,6 +2,7 @@
 
 a {
   text-decoration: none;
+  color: #00ADB5;
 }
 
 .fs-timeline-header {
@@ -68,7 +69,7 @@ a {
 }
 
 .fs-timeline .fs-timeline-item a {
-  color: #0070B2;
+  color: #00ADB5;
 }
 
 .fs-timeline .fs-timeline-item-line {
@@ -171,9 +172,10 @@ a {
   top: -2px;
   display: inline-block;
   padding: 1px 4px;
-  background-color: #dadada;
-  border: 2px solid #dadada;
+  background-color: #00ADB5;
+  border: 2px solid #fff;
   border-radius: 4px;
+  color: #EEEEEE;
 }
 
 /*Model image*/
