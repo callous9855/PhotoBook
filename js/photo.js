@@ -118,9 +118,12 @@ function previewFile(file) {
   let reader = new FileReader()
   reader.readAsDataURL(file)
   reader.onloadend = function() {
-    let img = document.createElement('img')
+    let img = document.createElement('img');
+    img.setAttribute('name','upload_img');
+    img.setAttribute('id','img_upload');
     img.src = reader.result
     document.getElementById('gallery').appendChild(img)
+
   }
 }
 
