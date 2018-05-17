@@ -191,7 +191,7 @@ $(document).ready(function(){
       // json group object 
       console.log(group);
     });
-  }
+  });
   // end add group
 
   //3.2.1 start search user
@@ -214,7 +214,7 @@ $(document).ready(function(){
       // json username object 
       console.log(username);
     });
-  }
+  });
   // end search user
 
   //3.2.2 start add user
@@ -237,7 +237,7 @@ $(document).ready(function(){
       // json photo object 
       console.log(member);
     });
-  }
+  });
   // end add user
 
   //4.1 start upload photo story
@@ -249,7 +249,7 @@ $(document).ready(function(){
       url: '/groups/<group_code>/upload',
       method: 'POST',
       dataType: 'json',
-      data: new new FormData(form),
+      data: new FormData(form),
       processData: false,
       contentType: false,
 
@@ -264,7 +264,7 @@ $(document).ready(function(){
       // json photo object 
       console.log(photo);
     });
-  }
+  });
   // end thêm photo story
 
 })
