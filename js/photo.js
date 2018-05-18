@@ -156,92 +156,30 @@ function uploadFile(file, i) {
 }
 // end drag and drop image
 
-// GET DATA
-// get group photo story
-function getGroupPhoto(){
+// start add group photo
+function addGroupPhoto(photo){
+  var row = '';
 
-}
+  row+='<li class="fs-timeline-item">';
+  row+='  <div class="fs-timeline-item-line"></div>';
+  row+='  <div class="fs-timeline-item-bullet"></div>';
+  // date
+  row+='  <p class="fs-timeline-item-date">'+photo.date+'<br></p>';
+  // title
+  row+='  <p class="fs-timeline-item-description"><span class="fs-timeline-tag">'+photo.title+'</span>';
+  // author
+  row+='    <br>'+photo.author+' have a party with <a href="#">Mary Malinda Hall</a> and <a href="#">John Zera Alger</a>.<br>';
+  // image
+  row+='    <img id="myImg" src="'+photo.source+'" style="height: 150px">';
+  row+='  </p>';
+  row+='</li>';
 
-// get group list
-function getGroupList(){
-
-}
+  $('#photo-timeline').prepend(row);
+};
+// end add new group photo
 
 // start document
 $(document).ready(function(){
-  getGroupPhoto();
-  getGroupList();
-
-  //3.1 start add group
-  $('#').click(function (e){
-    e.preventDefault();
-    var form = $('#').serialize();
-
-    $.ajax({
-      url: '/groups/create',
-      method: 'POST',
-      dataType: 'json',
-      data: form,
-
-    }).done(function (data){
-      
-      // reload
-      // getGroupList();
-
-    }).fail(function (error, group) {
-      console.log(error.message); 
-    
-      // json group object 
-      console.log(group);
-    });
-  });
-  // end add group
-
-  //3.2.1 start search user
-  $('#us_find_btn').click(function (e){
-    e.preventDefault();
-    var form = $('#').serialize();
-
-    $.ajax({
-      url: '/findUser',
-      method: 'POST',
-      dataType: 'json',
-      data: form,
-
-    }).done(function (data){
-      
-
-    }).fail(function (error, username, found) {
-      console.log(error.message); 
-      console.log(found);
-      // json username object 
-      console.log(username);
-    });
-  });
-  // end search user
-
-  //3.2.2 start add user
-  $('#us_add_btn').click(function (e){
-    e.preventDefault();
-    var form = $('#').serialize();
-
-    $.ajax({
-      url: '/groups/addMember',
-      method: 'POST',
-      dataType: 'json',
-      data: form,
-
-    }).done(function (data){
-      
-
-    }).fail(function (error, member) {
-      console.log(error.message); 
-    
-      // json photo object 
-      console.log(member);
-    });
-  });
-  // end add user
 
   //4.1 start upload photo story
   $('#up_photo_btn').click(function (e){
@@ -259,16 +197,20 @@ $(document).ready(function(){
     }).done(function (data){
       form.reset();
 
-      // reload
-      // getGroupPhoto();
+      if (data.error) {
+        console.log(error);
+        alert(error);
+      }
+      else {
+        addGroupPhoto(data.photo);
+        alert("Add successfully");
+      }
 
-    }).fail(function (error, photo) {
-      console.log(error.message); 
-      // json photo object 
-      console.log(photo);
+    }).fail(function (data) {
+      console.log(error); 
     });
   });
-  // end thêm photo story
+  // end upload photo story
 
 })
 // end document

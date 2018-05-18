@@ -41,45 +41,5 @@ $('input').attr('title', 'Cannot contain special characters and must be at least
 // start document
 $(document).ready(function(){
 
-  // start sign in
-  $('#si_btn').click(function (e){
-    var form = $('#si_form').serialize();
-
-    $.ajax({
-    method: 'POST',
-    url: '/signin',
-    dataType: 'json',
-    data: form,
-
-    }).done(function (data){
-
-
-    }).fael(function (error, username){
-
-
-    });
-  })
-  // end sign in
-
-  // start sign in
-  $('#su_btn').click(function (e){
-    var form = $('#su_form').serialize();
-
-    $.ajax({
-    method: 'POST',
-    url: '/signup',
-    dataType: 'json',
-    data: form,
-
-    }).done(function (data){
-
-
-    }).fael(function (error, username){
-
-
-    });
-  })
-  // end sign in
-
 });
 // end document
