@@ -334,7 +334,7 @@ input{
   border-radius: 20px;
   width: 300px;
   font-family: sans-serif;
-  margin: 100px 0px 50px 20px;
+  margin: 140px auto;
   padding: 20px;
 }
 #drop-area.highlight {
