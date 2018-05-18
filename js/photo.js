@@ -123,7 +123,12 @@ function previewFile(file) {
     img.setAttribute('name','upload_img');
     img.setAttribute('id','img_upload');
     img.src = reader.result
-    document.getElementById('gallery').appendChild(img)
+    document.getElementById('gallery').appendChild(img);
+    document.getElementById("drop-image-here").style.display = "none";
+    document.getElementById('img_upload').style.margin = '0px 50px';
+    document.getElementById('up_photo_btn').classList.remove('hideButton');
+    document.getElementById('crop_resize').classList.remove('hideButton');
+    document.getElementById('select-image').classList.add('hideButton');
 
   }
 }

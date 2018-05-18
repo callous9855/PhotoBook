@@ -6,6 +6,7 @@
   <title>Photo Timeline</title>
   <link rel="stylesheet" href="css/photo.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 
 <body>
@@ -32,19 +33,23 @@
     <!-- start chọn upload ảnh -->
     <div id="drop-area">
       <form id="up_photo_form" class="upload-form" action="/groups/<group_code>/upload" method="POST">
-        Title
-        <input type="text" name="title" >
+        Tittle: <br>
+        <input class ="image_infor" type="text" name="title">
         <br>
-        Date
-        <input type="text" name="date">
+        Date: <br>
+        <input class ="image_infor" type="text" name="date">
+        <br>
+        Description: <br>
+        <textarea name="description" id="" cols="30" rows="10" style="width: 300px; height: 22px;"></textarea>
         <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this.files)">
-        <label class="button" for="fileElem">Select Images</label>
+        <label class="button" id="select-image" for="fileElem">Select Image</label>
 
-        <progress id="progress-bar" max=100 value=0></progress>
+        <progress id="progress-bar" style="display: none" max=100 value=0></progress>
+        <div><p class="animated infinite pulse" id="drop-image-here" style="text-align: center; font-size: 28px;">Drop image here</p></div>
         <div id="gallery"/></div>
       </form>   
-      <input type="submit" id="up_photo_btn" value="Upload">
-      <input type="button" value="Crop & resize">
+      <input type="submit" class="hideButton" id="up_photo_btn" value="Upload" style="margin: 20px 50px;">
+      <input type="button" class="hideButton" id="crop_resize" value="Crop & resize">
     </div>
     <!-- end chọn upload ảnh -->
 
