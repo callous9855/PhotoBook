@@ -12,7 +12,6 @@
 
 <body>
 
-
   <div class="fs-timeline-header">
     <div class="fs-timeline-header-card">
         <img src="img/logo.png" id="logo_photobook">
@@ -21,28 +20,27 @@
     </div>
   </div>
 
-  <!-- start chọn upload ảnh -->
-    <div id="drop-area">
-      <form id="up_photo_form" class="upload-form" action="/groups/<group_code>/upload" method="POST">
-        Tittle: <br>
-        <input class ="image_infor" type="text" name="title">
-        <br>
-        Date: <br>
-        <input class ="image_infor" type="text" name="date">
-        <br>
-        Description: <br>
-        <textarea name="description" id="" cols="30" rows="10" style="width: 300px; height: 22px;"></textarea>
-        <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this.files)">
-        <label class="button" id="select-image" for="fileElem">Select Image</label>
+  <div id="drop-area">
+    <form id="up_photo_form" class="upload-form" action="/groups/<group_code>/upload" method="POST">
+      Tittle: <br>
+      <input class ="image_infor" type="text" name="title">
+      <br>
+      Date: <br>
+      <input class ="image_infor" type="text" name="date">
+      <br>
+      Description: <br>
+      <textarea name="description" id="" cols="30" rows="10" style="width: 300px; height: 22px;"></textarea>
+      <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this.files)">
+      <label class="button" id="select-image" for="fileElem">Select Image</label>
 
-        <progress id="progress-bar" style="display: none" max=100 value=0></progress>
-        <div><p class="animated infinite pulse" id="drop-image-here" style="text-align: center; font-size: 28px;">Drop image here</p></div>
-        <div id="gallery"/></div>
-      </form>   
-      <input type="submit" class="hideButton" id="up_photo_btn" value="Upload" style="margin: 20px 50px;">
-      <input type="button" class="hideButton" id="crop_resize" value="Crop & resize">
-    </div>
-    <!-- end chọn upload ảnh -->
+      <progress id="progress-bar" style="display: none" max=100 value=0></progress>
+      <div><p class="animated infinite pulse" id="drop-image-here" style="text-align: center; font-size: 28px;">Drop image here</p></div>
+      <div id="gallery"/></div>
+    </form>   
+    <input type="submit" class="hideButton" id="up_photo_btn" value="Upload" style="margin: 20px 50px;">
+    <input type="button" class="hideButton" id="crop_resize" value="Crop & resize">
+  </div>
+  <!-- end chọn upload ảnh -->
 
   <ul class="fs-timeline" id="photo-timeline">
 

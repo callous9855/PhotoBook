@@ -203,8 +203,8 @@ $(document).ready(function(){
       form.reset();
 
       if (data.error) {
-        console.log(error);
-        alert(error);
+        console.log(data.error);
+        alert('Add fail');
       }
       else {
         addGroupPhoto(data.photo);
@@ -212,7 +212,7 @@ $(document).ready(function(){
       }
 
     }).fail(function (data) {
-      console.log(error); 
+      console.log(data.error); 
     });
   });
   // end upload photo story

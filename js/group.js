@@ -1,19 +1,33 @@
 
 
-//start add group
-function addGroup(group){
+//start create group
+function createGroup(group){
   var row = '';
 
 };
-// end add group
+// end create group
+
+//start find username
+function findUsername(username){
+  var row = '';
+
+};
+// end find username
+
+//start add member
+function addMember(username){
+  var row = '';
+
+};
+// end add member
 
 // start document
 $(document).ready(function(){
 
 	//3.1 start add group
-  $('#').click(function (e){
+  $('#create_group_btn').click(function (e){
     e.preventDefault();
-    var form = $('#').serialize();
+    var form = $('#create_group_form').serialize();
 
     $.ajax({
       url: '/groups/create',
@@ -22,23 +36,25 @@ $(document).ready(function(){
       data: form,
 
     }).done(function (data){
-      
-      // reload
-      // getGroupList();
+      if (data.error) {
+      	console.log(data.error);
+      	alert('Add failed');
+      }
+      else {
+      	createGroup(data.group);
+      	alert('Add successfully');
+      }
 
-    }).fail(function (error, group) {
-      console.log(error.message); 
-    
-      // json group object 
-      console.log(group);
+    }).fail(function (data.error) {
+      console.log(data.error); 
     });
   });
   // end add group
 
-  //3.2.1 start search user
+  //3.2.1 start find user
   $('#us_find_btn').click(function (e){
     e.preventDefault();
-    var form = $('#').serialize();
+    var form = $('#us_find_form').serialize();
 
     $.ajax({
       url: '/findUser',
@@ -47,21 +63,24 @@ $(document).ready(function(){
       data: form,
 
     }).done(function (data){
-      
+      if (data.error) {
+      	console.log(data.error);
+      	console.log(data.found);
+      }
+      else {
+      	findUsername(data.username);
+      }
 
-    }).fail(function (error, username, found) {
-      console.log(error.message); 
-      console.log(found);
-      // json username object 
-      console.log(username);
+    }).fail(function (data) {
+      console.log(data.error); 
     });
   });
-  // end search user
+  // end find user
 
-  //3.2.2 start add user
-  $('#us_add_btn').click(function (e){
+  //3.2.2 start add member
+  $('#mem_add_btn').click(function (e){
     e.preventDefault();
-    var form = $('#').serialize();
+    // var form = $('#').serialize();
 
     $.ajax({
       url: '/groups/addMember',
@@ -70,15 +89,17 @@ $(document).ready(function(){
       data: form,
 
     }).done(function (data){
-      
+      if (data.error) {
+      	console.log(data.error);
+      }
+      else {
+      	addMember(data.member);
+      }
 
-    }).fail(function (error, member) {
-      console.log(error.message); 
-    
-      // json photo object 
-      console.log(member);
+    }).fail(function (error) {
+      console.log(error);
     });
   });
-  // end add user
+  // end add member
 });
 // end document
