@@ -48,7 +48,7 @@ input{
   max-width: 90%;
   height: 70px;
   margin: 0 auto;
-  text-align: right;
+  text-align: right
 }
 .header-lifespan {
   display: block;
@@ -275,17 +275,20 @@ input{
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
+    margin-left: 15px; 
     display: none;
     position: absolute;
-    top: -25px;
-    background-color: #f9f9f9;
+    top: 60px;
+    background-color: #222831;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    text-align: center;
+    border-radius: 5px;
 }
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
+    color: #00ADB5;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
