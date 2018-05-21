@@ -25,6 +25,7 @@
 
 
 // Start zoom picture
+function zoomPic(){
   // Get the modal
   var modal = document.getElementById('myModal');
 
@@ -32,14 +33,16 @@
   var img = document.getElementsByClassName('myPhoto');
   var modalImg = document.getElementById("img01");
   console.log(img);
-  for (var i = img.length - 1; i >= 0; i--) {
-    img[i].onclick = function(){
-      console.log('click hinh '+this.src);
-      document.getElementById("photo-timeline").style.display = 'none';
-      modal.style.display = "block";
-      modalImg.src = this.src;
-    }
-  }
+  
+    for (var i = img.length - 1; i >= 0; i--) {
+      img[i].onclick = function(){
+        console.log('click hinh '+this.src);
+        document.getElementById("photo-timeline").style.display = 'none';
+        modal.style.display = "block";
+        modalImg.src = this.src;
+      }
+    } 
+  
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
@@ -49,6 +52,7 @@
     modal.style.display = "none";
     document.getElementById("photo-timeline").style.display = ""; 
   }
+}
 // End zoom picture
 //drag and drop image 
 // ************************ Drag and drop ***************** //
@@ -176,10 +180,10 @@ function addGroupPhoto(photo){
   row+='  <p class="fs-timeline-item-date">'+photo.date+'<br></p>';
   // title
   row+='  <p class="fs-timeline-item-description"><span class="fs-timeline-tag">'+photo.title+'</span>';
-  // author
-  row+='    <br>'+photo.author+' have a party with <a href="#">Mary Malinda Hall</a> and <a href="#">John Zera Alger</a>.<br>';
+  // description
+  row+='    <br>'+photo.description+'<br>';
   // image
-  row+='    <img id="myImg" src="'+photo.source+'" style="height: 150px">';
+  row+='    <img class="myPhoto" src="'+photo.source+'" style="height: 150px">';
   row+='  </p>';
   row+='</li>';
 
@@ -189,35 +193,48 @@ function addGroupPhoto(photo){
 
 // start document
 $(document).ready(function(){
-
+  
   //4.1 start upload photo story
   $('#up_photo_btn').click(function (e){
     e.preventDefault();
     var form = document.querySelector('#up_photo_form');
+    var groupid = $('#up_group_id');
 
-    $.ajax({
-      url: '/groups/<group_code>/upload',
-      method: 'POST',
-      dataType: 'json',
-      data: new FormData(form),
-      processData: false,
-      contentType: false,
+    // $.ajax({
+    //   url: '/groups/'+groupid+'/upload',
+    //   method: 'POST',
+    //   dataType: 'json',
+    //   data: new FormData(form),
+    //   processData: false,
+    //   contentType: false,
 
-    }).done(function (data){
-      form.reset();
+    // }).done(function (data){
+    //   form.reset();
 
-      if (data.error) {
-        console.log(data.error);
-        alert('Add fail');
-      }
-      else {
-        addGroupPhoto(data.photo);
-        alert("Add successfully");
-      }
+    //   if (data.error) {
+    //     console.log(data.error);
+    //     alert('Add fail');
+    //   }
+    //   else {
+    //     addGroupPhoto(data.photo);
+    //     alert("Add successfully");
+    //   }
 
-    }).fail(function (data) {
-      console.log(data.error); 
-    });
+    // }).fail(function (data) {
+    //   console.log(data.error); 
+    // });
+
+    var photo = {
+      "title": $('#up_title').val(),
+      "date": $('#up_date').val(),
+      // "id": groupid,
+      "description": $('#up_des').val(),
+      "source": $('#img_upload').attr('src'),
+    }
+    console.log(photo);
+
+    addGroupPhoto(photo);
+    zoomPic();
   });
   // end upload photo story
 
