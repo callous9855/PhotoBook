@@ -197,32 +197,33 @@ $(document).ready(function(){
   //4.1 start upload photo story
   $('#up_photo_btn').click(function (e){
     e.preventDefault();
+
     var form = document.querySelector('#up_photo_form');
     var groupid = $('#up_group_id');
+    $.ajax({
+      url: '/groups/'+groupid+'/upload',
 
-    // $.ajax({
-    //   url: '/groups/'+groupid+'/upload',
-    //   method: 'POST',
-    //   dataType: 'json',
-    //   data: new FormData(form),
-    //   processData: false,
-    //   contentType: false,
+      method: 'POST',
+      dataType: 'json',
+      data: new FormData(form),
+      processData: false,
+      contentType: false,
 
-    // }).done(function (data){
-    //   form.reset();
+    }).done(function (data){
+      form.reset();
 
-    //   if (data.error) {
-    //     console.log(data.error);
-    //     alert('Add fail');
-    //   }
-    //   else {
-    //     addGroupPhoto(data.photo);
-    //     alert("Add successfully");
-    //   }
+      if (data.error) {
+        console.log(data.error);
+        alert('Add fail');
+      }
+      else {
+        addGroupPhoto(data.photo);
+        alert("Add successfully");
+      }
 
-    // }).fail(function (data) {
-    //   console.log(data.error); 
-    // });
+    }).fail(function (data) {
+      console.log(data.error); 
+    });
 
     var photo = {
       "title": $('#up_title').val(),
@@ -235,6 +236,7 @@ $(document).ready(function(){
 
     addGroupPhoto(photo);
     zoomPic();
+
   });
   // end upload photo story
 
