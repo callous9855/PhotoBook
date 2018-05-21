@@ -218,6 +218,7 @@ $(document).ready(function(){
       }
       else {
         addGroupPhoto(data.photo);
+        zoomPic();
         alert("Add successfully");
       }
 
@@ -225,17 +226,6 @@ $(document).ready(function(){
       console.log(data.error); 
     });
 
-    var photo = {
-      "title": $('#up_title').val(),
-      "date": $('#up_date').val(),
-      // "id": groupid,
-      "description": $('#up_des').val(),
-      "source": $('#img_upload').attr('src'),
-    }
-    console.log(photo);
-
-    addGroupPhoto(photo);
-    zoomPic();
 
   });
   // end upload photo story
