@@ -176,8 +176,8 @@ function addGroupPhoto(photo){
   row+='  <p class="fs-timeline-item-date">'+photo.date+'<br></p>';
   // title
   row+='  <p class="fs-timeline-item-description"><span class="fs-timeline-tag">'+photo.title+'</span>';
-  // author
-  row+='    <br>'+photo.author+' have a party with <a href="#">Mary Malinda Hall</a> and <a href="#">John Zera Alger</a>.<br>';
+  // description
+  row+='    <br>'+photo.description+'<br>';
   // image
   row+='    <img id="myImg" src="'+photo.source+'" style="height: 150px">';
   row+='  </p>';
@@ -193,33 +193,81 @@ $(document).ready(function(){
   //4.1 start upload photo story
   $('#up_photo_btn').click(function (e){
     e.preventDefault();
-    var form = document.querySelector('#up_photo_form');
+    // var form = document.querySelector('#up_photo_form');
+    var date = $('#up_date').val();
+    var title = $('#up_title').val();
+    var des = $('#up_description').val();
+    var id = $('#up_groupid').val();
+    var img = $('#img_upload').attr('src');
+    // console.log(img);
+    console.log(id);
+    // $.ajax({
+    //   url: '/groups/'+id+'/upload',
+    //   method: 'POST',
+    //   dataType: 'json',
+    //   data: new FormData(form),
+    //   processData: false,
+    //   contentType: false,
 
-    $.ajax({
-      url: '/groups/<group_code>/upload',
-      method: 'POST',
-      dataType: 'json',
-      data: new FormData(form),
-      processData: false,
-      contentType: false,
+    // }).done(function (data){
+    //   form.reset();
 
-    }).done(function (data){
-      form.reset();
+    //   if (data.error) {
+    //     console.log(data.error);
+    //     alert('Add fail');
+    //   }
+    //   else {
+    //     addGroupPhoto(data.photo);
+    //     alert("Add successfully");
+    //   }
 
-      if (data.error) {
-        console.log(data.error);
-        alert('Add fail');
-      }
-      else {
-        addGroupPhoto(data.photo);
-        alert("Add successfully");
-      }
+    // }).fail(function (data) {
+    //   console.log(data.error); 
+    // });
 
-    }).fail(function (data) {
-      console.log(data.error); 
-    });
+    var photo = {
+      "date" : date,
+      "title" : title,
+      "description" : des,
+      "id" : id, 
+      'source' : img,
+    };
+    addGroupPhoto(photo);
+
   });
   // end upload photo story
 
+// DETAIL PIC BTN
+  // $('#photo-timeline').on('click', '.pic-btn',
+  $('.pic-btn').click( function(){
+    // GET DATA
+    // var id = $(this).parent('.picslot').find('input').attr('id');
+    var image = $(this).attr('src');
+    // SET DATA
+    $('#myModal img').attr('src', image);
+    // $('#detailModal input').val(id);
+    $('#myModal').modal();
+  })
+
+  // // DETAIL MODAL SIZE
+  // $(".modal-wide").on("show.bs.modal", function() {
+  //     var height = $(window).height() - 50;
+  //     $(this).find(".modal-body").css("max-height", height);
+  // });
 })
 // end document
+
+// viết lại upload ảnh
+// IMAGE PREVIEW
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('img.img-preview')
+                .attr('src', e.target.result)
+                .width(250)
+                .height(150);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
